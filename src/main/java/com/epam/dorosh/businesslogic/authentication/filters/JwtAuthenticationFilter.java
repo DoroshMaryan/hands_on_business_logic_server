@@ -37,7 +37,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 .getBody();
 
         final String username = String.valueOf(claims.get("username"));
-        final GrantedAuthority grantedAuthority  = new SimpleGrantedAuthority("user");
+        final GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("user");
         final var auth = new OtpAuthentication(username, null, List.of(grantedAuthority));
 
         SecurityContextHolder.getContext().setAuthentication(auth);
